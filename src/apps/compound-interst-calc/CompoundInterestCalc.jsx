@@ -346,7 +346,7 @@ const CompoundInterestCalc = () => {
   };
 
   return (
-    <div className="Interest-Calculator">
+    <div>
       <header className="Interest-Calculator-header">
         Compound Interest Calculator
       </header>

@@ -61,6 +61,7 @@
 .Header-link {
   color: var(--black);
 }
+
 .Interest-Calculator-header {
   margin: auto;
   text-align: center;
@@ -74,6 +75,7 @@
 @media only screen and (max-width: 767px) {
   .App-content {
     width: 90vw;
+    padding-bottom: 8vh;
   }
 
   .Header-content {
@@ -86,11 +88,24 @@
   .Header-title {
     display: none;
   }
+  .Header-link {
+    display: none;
+  }
+
+  .Interest-Calculator-header {
+    padding: 3vh;
+    font-size: 200%;
+    font-weight: 500;
+  }
+  .Interest-Calculator-show-math-button-container {
+    padding: 2vh;
+  }
 }
 
 @media only screen and (min-width: 768px) {
   .App-content {
     width: 60vw;
+    padding-bottom: 10vh;
   }
 
   .Header-content {
@@ -114,9 +129,6 @@
     padding-left: 2vw;
   }
 
-  .Interest-Calculator {
-    padding-bottom: 10vh;
-  }
   .Interest-Calculator-header {
     padding: 3vh;
     font-size: 200%;
