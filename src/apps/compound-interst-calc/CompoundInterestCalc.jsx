@@ -307,28 +307,37 @@ const CompoundInterestCalc = () => {
   };
 
   const handleInitialInvestmentChange = (e) => {
+    let val = e.target.value;
+    if (val < 0 || val === "") {
+      val = 0;
+    } else {
+      val = roundDecimal(val, 0);
+    }
     setInterestData({
       ...interestData,
-      initialInvestment: Number.parseFloat(e.target.value),
+      initialInvestment: val,
     });
   };
 
   const handleRecurringContributionChange = (e) => {
+    let val = e.target.value;
+    if (val < 0 || val === "") {
+      val = 0;
+    } else {
+      val = roundDecimal(val, 0);
+    }
     setInterestData({
       ...interestData,
-      recurringContribution: Number.parseFloat(e.target.value),
+      recurringContribution: val,
     });
   };
 
   const handleInterestRateChange = (e) => {
     let val = e.target.value;
-    console.log(val.match(/\d*.?\d{0,2}/));
-    if (val < 0) {
+    if (val < 0 || val === "" || (val !== "" && !val.match(/\d*.?\d{0,2}/))) {
       val = 0;
     } else if (val > 100) {
       val = 100;
-    } else if (val !== "" && !val.match(/\d*.?\d{0,2}/)) {
-      val = "";
     }
     setInterestData({
       ...interestData,
@@ -345,10 +354,12 @@ const CompoundInterestCalc = () => {
 
   const handleTimeChange = (e) => {
     let val = e.target.value;
-    if (val < 0) {
+    if (val < 0 || val === "") {
       val = 0;
     } else if (val > 99) {
       val = 99;
+    } else if (val !== "") {
+      val = roundDecimal(val, 0);
     }
     setInterestData({
       ...interestData,
@@ -370,7 +381,8 @@ const CompoundInterestCalc = () => {
           <Form.Label>Initial Investment</Form.Label>
           <Form.Control
             type="number"
-            step=".01"
+            inputMode="numeric"
+            step="1"
             value={interestData.initialInvestment}
             onChange={handleInitialInvestmentChange}
             placeholder="Enter Investment Amount"
@@ -384,7 +396,8 @@ const CompoundInterestCalc = () => {
           <Form.Label>Recurring Contributions</Form.Label>
           <Form.Control
             type="number"
-            step=".01"
+            inputMode="numeric"
+            step="1"
             value={interestData.recurringContribution}
             onChange={handleRecurringContributionChange}
             placeholder="Enter Recurring Contribution Amount"
@@ -433,6 +446,8 @@ const CompoundInterestCalc = () => {
           <Form.Label>Time (In Years)</Form.Label>
           <Form.Control
             type="number"
+            step="1"
+            inputMode="numeric"
             value={interestData.timeInYears}
             onChange={handleTimeChange}
             placeholder="Enter Time in Years"
