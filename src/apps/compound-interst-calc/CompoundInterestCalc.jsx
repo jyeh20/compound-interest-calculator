@@ -103,26 +103,26 @@ const CompoundInterestCalc = () => {
     return (contributionAmount * YEAR) / compoundRate;
   };
 
-  const printReport = () => {
-    const recurringInvestments = calculateRecurringContributionInterest();
-    const initialInvestments = calculateInitialContributionInterest();
+  // const printReport = () => {
+  //   const recurringInvestments = calculateRecurringContributionInterest();
+  //   const initialInvestments = calculateInitialContributionInterest();
 
-    for (let year = 0; year <= interestData.timeInYears; year++) {
-      const recValue = recurringInvestments.next().value.total;
-      const initValue = initialInvestments.next().value.total;
+  //   for (let year = 0; year <= interestData.timeInYears; year++) {
+  //     const recValue = recurringInvestments.next().value.total;
+  //     const initValue = initialInvestments.next().value.total;
 
-      let total = recValue + initValue;
-      total = roundDecimal(total);
-      console.log(
-        `Interest in year ${year}:
-          [
-            Interest on contributions: ${recValue}
-            Interest on Initial investment: ${initValue}
-          ]
-          Total: ${total}`
-      );
-    }
-  };
+  //     let total = recValue + initValue;
+  //     total = roundDecimal(total);
+  //     console.log(
+  //       `Interest in year ${year}:
+  //         [
+  //           Interest on contributions: ${recValue}
+  //           Interest on Initial investment: ${initValue}
+  //         ]
+  //         Total: ${total}`
+  //     );
+  //   }
+  // };
 
   const generateNewInterestChart = () => {
     ChartJS.register(
@@ -383,7 +383,7 @@ const CompoundInterestCalc = () => {
           <Form.Label>Expected Interest Rate</Form.Label>
           <Form.Control
             type="number"
-            step=".01"
+            step="any"
             value={interestData.interestRate}
             onChange={handleInterestRateChange}
             placeholder="Enter Interest Rate"
