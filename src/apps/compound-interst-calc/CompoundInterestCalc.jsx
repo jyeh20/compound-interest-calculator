@@ -383,6 +383,7 @@ const CompoundInterestCalc = () => {
           <Form.Label>Expected Interest Rate</Form.Label>
           <Form.Control
             type="number"
+            inputMode="decimal"
             step="any"
             value={interestData.interestRate}
             onChange={handleInterestRateChange}
