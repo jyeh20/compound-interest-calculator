@@ -1,0 +1,128 @@
+:root {
+  --white: #f5f5f5;
+  --mint: #d5f3ed;
+  --black: #1e1e1e;
+  --blue: #d5eaf3;
+  --green: #d5f3de;
+  --purple: #edd5f3;
+  --tan: #f3edd5;
+  --red: #f3d5db;
+  --dark-blue: #a5baf3;
+  --dark-green: #a5f3ae;
+  --dark-purple: #bda5f3;
+  --dark-tan: #f3bda5;
+  --dark-red: #f3858b;
+}
+
+.App-bg {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--white);
+  z-index: -1;
+}
+.App-content {
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.Header {
+  background-color: var(--mint);
+  color: var(--black);
+}
+.Header-content {
+  margin: auto;
+  text-align: center;
+  align-items: center;
+}
+.Header-logo {
+  min-width: 90px;
+  display: block;
+  margin: auto;
+  width: 50%;
+}
+.Header-logo-container {
+  width: 100%;
+  margin: auto;
+}
+.Header-title {
+  text-align: center;
+  min-width: 80px;
+  margin: auto;
+}
+.Header-links {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.Header-link {
+  color: var(--black);
+}
+.Interest-Calculator-header {
+  margin: auto;
+  text-align: center;
+}
+.Interest-Calculator-show-math-button-container {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+@media only screen and (max-width: 767px) {
+  .App-content {
+    width: 90vw;
+  }
+
+  .Header-content {
+    width: 90vw;
+    padding: 2vh;
+  }
+  .Header-logo {
+    width: 15vh;
+  }
+  .Header-title {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .App-content {
+    width: 60vw;
+  }
+
+  .Header-content {
+    width: clamp(400px, 75vw, 1800px);
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    padding: 2vw;
+  }
+  .Header-logo {
+    max-width: 300px;
+    width: 14vw;
+  }
+  .Header-title {
+    font-family: "DM Sans", sans-serif;
+    font-size: calc(20px + 2rem);
+    grid-column-start: 2;
+    grid-column-end: 4;
+  }
+  .Header-link {
+    font-size: calc(4px + 1rem);
+    padding-left: 2vw;
+  }
+
+  .Interest-Calculator {
+    padding-bottom: 10vh;
+  }
+  .Interest-Calculator-header {
+    padding: 3vh;
+    font-size: 200%;
+    font-weight: 500;
+  }
+  .Interest-Calculator-show-math-button-container {
+    padding: 2vh;
+  }
+}
