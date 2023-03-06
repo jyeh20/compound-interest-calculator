@@ -327,7 +327,7 @@ const CompoundInterestCalc = () => {
       val = 0;
     } else if (val > 100) {
       val = 100;
-    } else if (val !== "" && val.match(/\d*.?\d{0,2}/)) {
+    } else if (val !== "" && !val.match(/\d*.?\d{0,2}/)) {
       val = "";
     }
     setInterestData({
@@ -344,9 +344,15 @@ const CompoundInterestCalc = () => {
   };
 
   const handleTimeChange = (e) => {
+    let val = e.target.value;
+    if (val < 0) {
+      val = 0;
+    } else if (val > 99) {
+      val = 99;
+    }
     setInterestData({
       ...interestData,
-      timeInYears: Number.parseFloat(e.target.value),
+      timeInYears: val,
     });
   };
 
