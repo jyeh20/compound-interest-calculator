@@ -321,9 +321,18 @@ const CompoundInterestCalc = () => {
   };
 
   const handleInterestRateChange = (e) => {
+    let val = e.target.value;
+    console.log(val.match(/\d*.?\d{0,2}/));
+    if (val < 0) {
+      val = 0;
+    } else if (val > 100) {
+      val = 100;
+    } else if (val !== "" && val.match(/\d*.?\d{0,2}/)) {
+      val = "";
+    }
     setInterestData({
       ...interestData,
-      interestRate: Number.parseFloat(e.target.value),
+      interestRate: val,
     });
   };
 
@@ -382,9 +391,11 @@ const CompoundInterestCalc = () => {
         <Form.Group className="mb-3" controlId="formInterestRate">
           <Form.Label>Expected Interest Rate</Form.Label>
           <Form.Control
-            type="number"
+            type="text"
             inputMode="decimal"
-            step="any"
+            step="0.01"
+            min="0"
+            max="100"
             value={interestData.interestRate}
             onChange={handleInterestRateChange}
             placeholder="Enter Interest Rate"
