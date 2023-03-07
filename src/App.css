@@ -62,7 +62,7 @@
   color: var(--black);
 }
 
-.Interest-Calculator-header {
+.Tool-Header {
   margin: auto;
   text-align: center;
 }
@@ -92,7 +92,7 @@
     display: none;
   }
 
-  .Interest-Calculator-header {
+  .Tool-Header {
     padding: 3vh;
     font-size: 200%;
     font-weight: 500;
@@ -129,7 +129,7 @@
     padding-left: 2vw;
   }
 
-  .Interest-Calculator-header {
+  .Tool-Header {
     padding: 3vh;
     font-size: 200%;
     font-weight: 500;
