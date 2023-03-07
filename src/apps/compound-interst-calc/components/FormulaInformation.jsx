@@ -22,9 +22,9 @@ const FormulaInformation = (props) => {
           <br />
           <div>
             <div>
-              Recurring Contribution: P =
+              Recurring Contribution:
               <TeX block>
-                {`
+                {` P =
                 \\frac {\\frac {${interestData.recurringContribution} \\times 12}
                 {${interestData.compoundRate}} \\times [(1 + \\frac
                 {${interestData.interestRate}} {${interestData.compoundRate}}^
@@ -34,9 +34,9 @@ const FormulaInformation = (props) => {
               </TeX>
             </div>
             <div>
-              Recurring Contribution: P =
+              Recurring Contribution:
               <TeX block>
-                {`
+                {`P =
                 \\frac {${calculator.contributionNormalizedByRate(
                   interestData.recurringContribution,
                   interestData.compoundRate
@@ -53,9 +53,9 @@ const FormulaInformation = (props) => {
           <br />
           <div>
             <div>
-              Initial Investment: P =
+              Initial Investment:
               <TeX block>
-                {`
+                {`P =
                 ${interestData.initialInvestment} \\times [(1 +
                 \\frac {${interestData.interestRate}} {${interestData.compoundRate}}
                 ) ^ {${interestData.compoundRate} \\times ${iIterator.year}}]
@@ -63,12 +63,12 @@ const FormulaInformation = (props) => {
               </TeX>
             </div>
             <div>
-              Initial Investment: P =
+              Initial Investment:
               <TeX block>
-                {`
-              ${interestData.initialInvestment} \\times
-              {${iIterator.oneRN}} ^ {${iIterator.nt}}
-              `}
+                {`P =
+                ${interestData.initialInvestment} \\times
+                {${iIterator.oneRN}} ^ {${iIterator.nt}}
+                `}
               </TeX>
             </div>
             <div>
@@ -77,6 +77,9 @@ const FormulaInformation = (props) => {
             <div>
               <b>
                 Total: $
+                {calculator.roundDecimal(Number.parseFloat(rIterator.total))} +
+                ${calculator.roundDecimal(Number.parseFloat(iIterator.total))} =
+                $
                 {calculator.roundDecimal(
                   Number.parseFloat(rIterator.total) +
                     Number.parseFloat(iIterator.total)
