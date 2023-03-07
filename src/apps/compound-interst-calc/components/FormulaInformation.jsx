@@ -101,7 +101,7 @@ const FormulaInformation = (props) => {
           Calculating Interest on Initial Investment:
         </h4>
         <h5 className="Interest-Calculator-formula">
-          P = INV x [(1 + (r / n)) ^ (n * t)]
+          <TeX block>{`P = INV \\times {(1 + \\frac{r}{n})} ^ {nt}`}</TeX>
         </h5>
         <div className="Interest-Calculator-formula-variables">
           Variables:
@@ -116,8 +116,11 @@ const FormulaInformation = (props) => {
         <h4 className="Interest-Calculator-formula-title">
           Calculating Interest on Recurring Contributions:
         </h4>
+
         <h5 className="Interest-Calculator-formula">
-          P = (INV * 12 / n) * [(1 + (r / n)) ^ (n x t) - 1] / (r / n)
+          <TeX
+            block
+          >{`P = \\frac{\\frac{INV \\times 12}{n} \\times [{(1 + \\frac{r}{n})} ^ {nt} - 1]} {\\frac{r}{n}}`}</TeX>
         </h5>
         <div className="Interest-Calculator-formula-variables">
           Variables:
