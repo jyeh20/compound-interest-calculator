@@ -16,6 +16,20 @@ const CompoundInterestChart = (props) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
+    const getInterest = () => {
+      const recData = [];
+      const initData = [];
+      for (const val of recurringContributionGenerator) {
+        recData.push(val.total);
+      }
+      for (const val of initialInvestmentGenerator) {
+        initData.push(val.total);
+      }
+      return recData.map(
+        (val, ind) => Number.parseFloat(val) + Number.parseFloat(initData[ind])
+      );
+    };
+
     setData(getInterest());
   }, [recurringContributionGenerator, initialInvestmentGenerator]);
 
@@ -25,20 +39,6 @@ const CompoundInterestChart = (props) => {
       years.push(year);
     }
     return years;
-  };
-
-  const getInterest = () => {
-    const recData = [];
-    const initData = [];
-    for (const val of recurringContributionGenerator) {
-      recData.push(val.total);
-    }
-    for (const val of initialInvestmentGenerator) {
-      initData.push(val.total);
-    }
-    return recData.map(
-      (val, ind) => Number.parseFloat(val) + Number.parseFloat(initData[ind])
-    );
   };
 
   return (

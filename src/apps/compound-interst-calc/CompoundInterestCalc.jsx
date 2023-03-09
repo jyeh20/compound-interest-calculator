@@ -97,7 +97,7 @@ const CompoundInterestCalc = () => {
 
   return (
     <div>
-      <header className="Tool-Header">Compound Interest Calculator</header>
+      <header className="Tool-Header-text">Compound Interest Calculator</header>
       <Form>
         <Form.Group className="mb-3" controlId="formInitialInvestment">
           <Form.Label>Initial Investment</Form.Label>
@@ -179,6 +179,32 @@ const CompoundInterestCalc = () => {
           </Form.Text>
         </Form.Group>
       </Form>
+
+      <div className="tool-amount-display">
+        <h3 className="tool-amount-display-header">
+          Your total savings after {interestData.timeInYears} years:
+        </h3>
+        <h1 className="tool-amount-display-amount">
+          $
+          {Number.parseFloat(
+            calculator.recurringCompoundCalc(
+              interestData.recurringContribution,
+              interestData.interestRate,
+              interestData.compoundRate,
+              interestData.timeInYears
+            )
+          ) +
+            Number.parseFloat(
+              calculator.initialCompoundCalc(
+                interestData.initialInvestment,
+                interestData.interestRate,
+                interestData.compoundRate,
+                interestData.timeInYears
+              )
+            )}
+        </h1>
+      </div>
+
       <CompoundInterestChart
         timeInYears={interestData.timeInYears}
         recurringContributionGenerator={calculator.generateCompoundOnRecurringContributions()}

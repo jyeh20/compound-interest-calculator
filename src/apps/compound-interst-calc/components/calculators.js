@@ -77,6 +77,25 @@ const CompoundCalculator = class {
       };
     }
   }
+
+  recurringCompoundCalc(amount, interest, compoundRate, time) {
+    const rOverN = this.interestToPercentage(interest) / compoundRate;
+    const oneRN = ONE + rOverN;
+    const nt = compoundRate * time;
+
+    const total =
+      (this.contributionNormalizedByRate(amount, compoundRate) *
+        (oneRN ** nt - ONE)) /
+      rOverN;
+    return this.roundDecimal(total);
+  }
+
+  initialCompoundCalc(amount, interest, compoundRate, time) {
+    const oneRN = ONE + this.interestToPercentage(interest) / compoundRate;
+    const nt = compoundRate * time;
+    let total = amount * oneRN ** nt;
+    return this.roundDecimal(total);
+  }
 };
 
 export default CompoundCalculator;
