@@ -187,21 +187,25 @@ const CompoundInterestCalc = () => {
         <h1 className="tool-amount-display-amount">
           $
           {Number.parseFloat(
-            calculator.recurringCompoundCalc(
-              interestData.recurringContribution,
-              interestData.interestRate,
-              interestData.compoundRate,
-              interestData.timeInYears
+            calculator.roundDecimal(
+              Number.parseFloat(
+                calculator.recurringCompoundCalc(
+                  interestData.recurringContribution,
+                  interestData.interestRate,
+                  interestData.compoundRate,
+                  interestData.timeInYears
+                )
+              ) +
+                Number.parseFloat(
+                  calculator.initialCompoundCalc(
+                    interestData.initialInvestment,
+                    interestData.interestRate,
+                    interestData.compoundRate,
+                    interestData.timeInYears
+                  )
+                )
             )
-          ) +
-            Number.parseFloat(
-              calculator.initialCompoundCalc(
-                interestData.initialInvestment,
-                interestData.interestRate,
-                interestData.compoundRate,
-                interestData.timeInYears
-              )
-            )}
+          )}
         </h1>
       </div>
 
