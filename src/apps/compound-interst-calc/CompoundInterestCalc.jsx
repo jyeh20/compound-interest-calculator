@@ -15,11 +15,11 @@ const COMPOUND_TO_TIME = {
 
 const CompoundInterestCalc = () => {
   const [interestData, setInterestData] = useState({
-    initialInvestment: 1000,
-    recurringContribution: 0,
-    interestRate: 3.75,
-    compoundRate: 12,
-    timeInYears: 5,
+    initialInvestment: 0,
+    recurringContribution: 1000,
+    interestRate: 8,
+    compoundRate: 1,
+    timeInYears: 35,
   });
   const [calculator, setCalculator] = useState(
     new CompoundCalculator(interestData)
