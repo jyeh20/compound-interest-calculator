@@ -97,7 +97,9 @@ const CompoundInterestCalc = () => {
 
   return (
     <div>
-      <header className="Tool-Header-text">Compound Interest Calculator</header>
+      <header className="Tool-Header-text">
+        Mint's Compound Interest Calculator
+      </header>
       <Form>
         <Form.Group className="mb-3" controlId="formInitialInvestment">
           <Form.Label>Initial Investment</Form.Label>

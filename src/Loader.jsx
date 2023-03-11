@@ -6,14 +6,24 @@ import { TOOLS } from "./assets/consts";
 const Loader = () => {
   return (
     <Routes>
-      <Route path="" element={<CompoundInterestCalc />} />
+      <Route
+        path=""
+        element={
+          <Navigate
+            to={`https://www.onetruemint.com${TOOLS.compoundInterestCalculator.path}`}
+            replace={true}
+          />
+        }
+      />
       <Route
         path={TOOLS.compoundInterestCalculator.path}
-        element={<Navigate to="https://www.onetruemint.com" replace={true} />}
+        element={<CompoundInterestCalc />}
       />
       <Route
         path="*"
-        element={<Navigate to="/compound-interest-calc" replace />}
+        element={
+          <Navigate to={TOOLS.compoundInterestCalculator.path} replace />
+        }
       />
     </Routes>
   );
