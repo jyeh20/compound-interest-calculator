@@ -23,8 +23,27 @@ const getNewCalculator = () => {
   };
 };
 
-const CompoundInterestCalc = () => {
-  const [interestData, setInterestData] = useState([getNewCalculator()]);
+const CompoundInterestCalcCompare = () => {
+  const [interestData, setInterestData] = useState([
+    {
+      title: "Average Joe",
+      initialInvestment: 0,
+      recurringContribution: 1000,
+      interestRate: 0,
+      compoundRate: 1,
+      timeInYears: 35,
+      colors: getColors(3, 255),
+    },
+    {
+      title: "Mint Mike",
+      initialInvestment: 0,
+      recurringContribution: 1000,
+      interestRate: 8,
+      compoundRate: 1,
+      timeInYears: 35,
+      colors: getColors(3, 255),
+    },
+  ]);
   const [calculators, setCalculators] = useState(
     interestData.map((e) => new CompoundCalculator(e))
   );
@@ -65,7 +84,7 @@ const CompoundInterestCalc = () => {
     return (
       <Button
         variant="primary"
-        disabled={interestData.length > 2}
+        disabled={interestData.length > 5}
         onClick={handleAddCompare}
       >
         Add another calculator!
@@ -140,4 +159,4 @@ const CompoundInterestCalc = () => {
   );
 };
 
-export default CompoundInterestCalc;
+export default CompoundInterestCalcCompare;

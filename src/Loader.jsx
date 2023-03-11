@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { CompoundInterestCalc } from "./apps";
-import { TOOLS } from "./assets/consts";
+import { CompoundInterestCalc, CompoundInterestCalcCompare } from "./apps";
+import { EXAMPLES, TOOLS } from "./assets/consts";
 
 const Loader = () => {
   return (
@@ -18,6 +18,10 @@ const Loader = () => {
       <Route
         path={TOOLS.compoundInterestCalculator.path}
         element={<CompoundInterestCalc />}
+      />
+      <Route
+        path={EXAMPLES.compoundInterestCalculatorCompare.path}
+        element={<CompoundInterestCalcCompare />}
       />
       <Route
         path="*"

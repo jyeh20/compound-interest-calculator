@@ -5,4 +5,11 @@ const TOOLS = {
   },
 };
 
-export { TOOLS };
+const EXAMPLES = {
+  compoundInterestCalculatorCompare: {
+    name: "Compare Compound Interest",
+    path: "/compound-interst-calc-compare-mint-mike",
+  },
+};
+
+export { TOOLS, EXAMPLES };

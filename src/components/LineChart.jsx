@@ -24,14 +24,12 @@ const LineChart = (props) => {
 
   const data = {
     labels: props?.labelArray,
-    datasets: [
-      {
-        label: props?.label || "Chart Title",
-        data: props?.dataArray,
-        borderColor: props?.borderColor || "rgb(53, 162, 235)",
-        backgroundColor: props?.backgroundColor || "rgba(53, 162, 235, 0.5",
-      },
-    ],
+    datasets: props?.data.map((e) => ({
+      label: e?.label || "Chart Title",
+      data: e?.dataArray || [],
+      borderColor: e?.borderColor || "rgb(53, 162, 235)",
+      backgroundColor: e?.backgroundColor || "rgba(53, 162, 235, 0.5)",
+    })),
   };
   const options = {
     responsive: true,

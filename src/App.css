@@ -66,9 +66,22 @@
   margin: auto;
   text-align: center;
 }
-.Interest-Calculator-show-math-button-container {
+.Interest-Calculator-forms-container {
+  margin: auto;
+  min-width: 400px;
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.Interest-Calculator-forms {
+  margin: auto;
+  min-width: 200px;
+}
+.Interest-Calculator-button-container {
+  display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   text-align: center;
 }
 .tool-amount-display {
@@ -104,14 +117,15 @@
     font-size: 200%;
     font-weight: 500;
   }
-  .Interest-Calculator-show-math-button-container {
+  .Interest-Calculator-button-container {
     padding: 2vh;
   }
 }
 
 @media only screen and (min-width: 768px) {
   .App-content {
-    width: 60vw;
+    min-width: 400px;
+    width: 80vw;
     padding-bottom: 10vh;
   }
 
@@ -141,7 +155,14 @@
     font-size: 200%;
     font-weight: 500;
   }
-  .Interest-Calculator-show-math-button-container {
+  .Interest-Calculator-forms-container {
+    width: 80vw;
+  }
+  .Interest-Calculator-forms {
+    width: 30%;
+    padding: 2vw;
+  }
+  .Interest-Calculator-button-container {
     padding: 2vh;
   }
   h3.tool-amount-display-header {
@@ -150,6 +171,6 @@
   }
   h1.tool-amount-display-amount {
     padding: 5vh;
-    font-size: 6em;
+    font-size: 5em;
   }
 }

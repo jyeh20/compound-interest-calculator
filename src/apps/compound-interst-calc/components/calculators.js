@@ -46,6 +46,14 @@ const CompoundCalculator = class {
         ) *
           (oneRN ** nt - ONE)) /
         rOverN;
+
+      if (Number.parseFloat(this.interestRate) === 0) {
+        total =
+          this.contributionNormalizedByRate(
+            this.recurringContribution,
+            this.compoundRate
+          ) * nt;
+      }
       total = this.roundDecimal(total);
       yield {
         year,
@@ -83,10 +91,13 @@ const CompoundCalculator = class {
     const oneRN = ONE + rOverN;
     const nt = compoundRate * time;
 
-    const total =
+    let total =
       (this.contributionNormalizedByRate(amount, compoundRate) *
         (oneRN ** nt - ONE)) /
       rOverN;
+    if (Number.parseFloat(interest) === 0) {
+      total = this.contributionNormalizedByRate(amount, compoundRate) * nt;
+    }
     return this.roundDecimal(total);
   }
 

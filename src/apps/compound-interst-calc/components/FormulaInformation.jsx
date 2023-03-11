@@ -3,6 +3,9 @@ import TeX from "@matejmazur/react-katex";
 
 const FormulaInformation = (props) => {
   const { calculator, interestData } = props;
+  console.log(props);
+  console.log(calculator);
+  console.log(interestData);
 
   const InformationPerYear = () => {
     const messages = [];
