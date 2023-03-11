@@ -159,7 +159,6 @@
     width: 80vw;
   }
   .Interest-Calculator-forms {
-    width: 30%;
     padding: 2vw;
   }
   .Interest-Calculator-button-container {
@@ -168,6 +167,7 @@
   h3.tool-amount-display-header {
     padding-top: 4vh;
     font-size: 2em;
+    width: 100%;
   }
   h1.tool-amount-display-amount {
     padding: 5vh;
