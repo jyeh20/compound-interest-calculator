@@ -89,7 +89,6 @@
   margin: auto;
   text-align: center;
   justify-content: center;
-  align-items: center;
 }
 
 @media only screen and (max-width: 767px) {
@@ -160,6 +159,7 @@
   }
   .Interest-Calculator-forms {
     padding: 2vw;
+    width: 30%;
   }
   .Interest-Calculator-button-container {
     padding: 2vh;
@@ -171,6 +171,6 @@
   }
   h1.tool-amount-display-amount {
     padding: 5vh;
-    font-size: 5em;
+    font-size: 4em;
   }
 }
