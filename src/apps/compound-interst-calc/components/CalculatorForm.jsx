@@ -103,7 +103,6 @@ const CalculatorForm = (props) => {
       <Form.Group className="mb-3" controlId="formInitialInvestment">
         <Form.Label>Title</Form.Label>
         <Form.Control
-          // value={interestData.title}
           onBlur={handleTitleChange}
           placeholder="Enter label name"
         />
@@ -112,8 +111,7 @@ const CalculatorForm = (props) => {
           type="number"
           inputMode="numeric"
           step="1"
-          value={interestData.initialInvestment}
-          onChange={handleInitialInvestmentChange}
+          onBlur={handleInitialInvestmentChange}
           placeholder="Enter Investment Amount"
         />
         <Form.Text className="text-muted">
@@ -127,8 +125,7 @@ const CalculatorForm = (props) => {
           type="number"
           inputMode="numeric"
           step="1"
-          value={interestData.recurringContribution}
-          onChange={handleRecurringContributionChange}
+          onBlur={handleRecurringContributionChange}
           placeholder="Enter Recurring Contribution Amount"
         />
         <Form.Text className="text-muted">
@@ -144,8 +141,7 @@ const CalculatorForm = (props) => {
           step="0.01"
           min="0"
           max="100"
-          value={interestData.interestRate}
-          onChange={handleInterestRateChange}
+          onBlur={handleInterestRateChange}
           placeholder="Enter Interest Rate"
         />
         <Form.Text className="text-muted">
@@ -157,8 +153,7 @@ const CalculatorForm = (props) => {
         <Form.Label>Compound Frequency</Form.Label>
         <Form.Select
           aria-label="Default select example"
-          value={interestData.compoundRate}
-          onChange={handleCompoundRateChange}
+          onBlur={handleCompoundRateChange}
         >
           {Object.entries(COMPOUND_TO_TIME).map(([key, val]) => (
             <option key={key} value={key}>
