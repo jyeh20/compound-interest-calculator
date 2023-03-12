@@ -103,8 +103,8 @@ const CalculatorForm = (props) => {
       <Form.Group className="mb-3" controlId="formInitialInvestment">
         <Form.Label>Title</Form.Label>
         <Form.Control
-          value={interestData.title}
-          onChange={handleTitleChange}
+          // value={interestData.title}
+          onBlur={handleTitleChange}
           placeholder="Enter label name"
         />
         <Form.Label>Initial Investment</Form.Label>

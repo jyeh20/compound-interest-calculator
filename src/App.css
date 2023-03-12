@@ -78,11 +78,21 @@
   margin: auto;
   min-width: 200px;
 }
+.Interest-Calculator-chart-container {
+  margin: auto;
+  min-width: 400px;
+  min-height: 400px;
+}
 .Interest-Calculator-button-container {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   text-align: center;
+}
+.Interest-Calculator-formula-info {
+  min-width: 400px;
+  margin: auto;
+  padding-top: 4vh;
 }
 .tool-amount-display {
   color: var(--dark-blue);
@@ -161,8 +171,17 @@
     padding: 2vw;
     width: 30%;
   }
+  .Interest-Calculator-chart-container {
+    width: 60vw;
+    height: 60vh;
+    max-width: 1600px;
+    max-height: 1600px;
+  }
   .Interest-Calculator-button-container {
     padding: 2vh;
+  }
+  .Interest-Calculator-formula-info {
+    width: 40vw;
   }
   h3.tool-amount-display-header {
     padding-top: 4vh;

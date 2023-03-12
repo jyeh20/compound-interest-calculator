@@ -115,11 +115,16 @@ const CompoundInterestCalc = () => {
         <RemoveCalculator />
         <AddCalculator />
       </div>
-      <CompoundInterestChart
-        interestDataArr={interestData}
-        calculators={calculators}
-      />
+
+      <div className="Interest-Calculator-chart-container">
+        <CompoundInterestChart
+          interestDataArr={interestData}
+          calculators={calculators}
+        />
+      </div>
+
       <div className="Interest-Calculator-button-container">
+        <RemoveCalculator />
         {interestData.length === 1 ? (
           <div>
             <Button variant="primary" onClick={handleShowMath}>
@@ -127,15 +132,17 @@ const CompoundInterestCalc = () => {
             </Button>
           </div>
         ) : null}
-        <RemoveCalculator />
         <AddCalculator />
       </div>
-      {showMath ? (
-        <FormulaInformation
-          calculator={calculators[0]}
-          interestData={interestData[0]}
-        />
-      ) : null}
+
+      <div className="Interest-Calculator-formula-info">
+        {showMath ? (
+          <FormulaInformation
+            calculator={calculators[0]}
+            interestData={interestData[0]}
+          />
+        ) : null}
+      </div>
     </div>
   );
 };
