@@ -65,7 +65,7 @@ const CompoundInterestCalc = () => {
     return (
       <Button
         variant="primary"
-        disabled={interestData.length > 2}
+        disabled={interestData.length > 4}
         onClick={handleAddCompare}
       >
         Add another calculator!
