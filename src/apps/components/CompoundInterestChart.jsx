@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import LineChart from "../../../components/LineChart";
+import LineChart from "../../components/LineChart";
 
 /**
  * @param {[Number]} timeInYears

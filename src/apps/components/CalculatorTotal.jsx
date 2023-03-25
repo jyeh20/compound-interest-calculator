@@ -1,5 +1,5 @@
 import React from "react";
-import CompoundCalculator from "./calculators";
+import CompoundCalculator from "./CompoundCalculator";
 
 const CalculatorTotal = (props) => {
   const { interestData } = props;

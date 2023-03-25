@@ -86,6 +86,24 @@ const CompoundCalculator = class {
     }
   }
 
+  getTotalCompoundWithWithdrawal(withdrawalPercentage) {
+    const recurring = [];
+    const initial = [];
+    for (let compound of this.generateCompoundOnRecurringContributions()) {
+      recurring.push(Number.parseFloat(compound.total));
+    }
+    for (let compound of this.generateCompoundOnInitialInvestment()) {
+      initial.push(Number.parseFloat(compound.total));
+    }
+    return recurring.map((compound, index) =>
+      Number.parseFloat(
+        this.roundDecimal(
+          (compound + initial[index]) * (1 - withdrawalPercentage / 100)
+        )
+      )
+    );
+  }
+
   recurringCompoundCalc(amount, interest, compoundRate, time) {
     const rOverN = this.interestToPercentage(interest) / compoundRate;
     const oneRN = ONE + rOverN;

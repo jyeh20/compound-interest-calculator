@@ -1,6 +1,6 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
-import CompoundCalculator from "./calculators";
+import CompoundCalculator from "./CompoundCalculator";
 
 const COMPOUND_TO_TIME = {
   1: "Annually",

@@ -8,10 +8,10 @@ import {
   FormulaInformation,
   CompoundInterestChart,
   CalculatorTotal,
-} from "./components";
-import { getColors } from "../../assets/utils";
+} from "../components";
+import { getMint, getMintVariant } from "../../assets/utils";
 
-const getNewCalculator = () => {
+const getNewCalculator = (color = undefined) => {
   return {
     title: "Compound Calculator",
     initialInvestment: 0,
@@ -19,12 +19,14 @@ const getNewCalculator = () => {
     interestRate: 8,
     compoundRate: 1,
     timeInYears: 35,
-    colors: getColors(3, 255),
+    colors: color || getMintVariant(),
   };
 };
 
 const CompoundInterestCalc = () => {
-  const [interestData, setInterestData] = useState([getNewCalculator()]);
+  const [interestData, setInterestData] = useState([
+    getNewCalculator(getMint()),
+  ]);
   const [calculators, setCalculators] = useState(
     interestData.map((e) => new CompoundCalculator(e))
   );
@@ -61,30 +63,6 @@ const CompoundInterestCalc = () => {
     );
   }, [interestData]);
 
-  const AddCalculator = () => {
-    return (
-      <Button
-        variant="primary"
-        disabled={interestData.length > 4}
-        onClick={handleAddCompare}
-      >
-        Add another calculator!
-      </Button>
-    );
-  };
-
-  const RemoveCalculator = () => {
-    return (
-      <Button
-        variant="primary"
-        disabled={interestData.length === 1}
-        onClick={handleRemoveCompare}
-      >
-        Remove a calculator!
-      </Button>
-    );
-  };
-
   const handleShowMath = () => {
     setShowMath(!showMath);
   };
@@ -102,39 +80,78 @@ const CompoundInterestCalc = () => {
     setInterestData(newInterestData);
   };
 
+  const [calculatorButtons] = useState(
+    new Map([
+      [
+        "add",
+        <Button
+          variant="primary"
+          disabled={interestData.length > 4}
+          onClick={handleAddCompare}
+        >
+          Add another calculator!
+        </Button>,
+      ],
+      [
+        "remove",
+        <Button
+          variant="primary"
+          disabled={interestData.length === 1}
+          onClick={handleRemoveCompare}
+        >
+          Remove a calculator!
+        </Button>,
+      ],
+    ])
+  );
+
+  const InterestCalculatorButton = (props) => {
+    const { element } = props;
+
+    return <div className="Interest-Calculator-button">{element}</div>;
+  };
+
+  const CalculatorButton = (props) => {
+    const { dispatch } = props;
+    return (
+      <InterestCalculatorButton element={calculatorButtons.get(dispatch)} />
+    );
+  };
+
   return (
     <div className="Compound-Interest-Calculator">
       <header className="Tool-Header-text">
         Mint's Compound Interest Calculator
       </header>
-      <div className="Interest-Calculator-forms-container">
-        {calculatorForms}
-      </div>
+      <div className="Interest-Calculator-body">
+        <div className="Interest-Calculator-forms-container">
+          {calculatorForms}
+        </div>
 
-      <div className="Interest-Calculator-button-container">
-        <RemoveCalculator />
-        <AddCalculator />
-      </div>
+        <div className="Interest-Calculator-button-container">
+          <CalculatorButton dispatch="remove" />
+          <CalculatorButton dispatch="add" />
+        </div>
 
-      <div className="Interest-Calculator-chart-container">
-        <CompoundInterestChart
-          interestDataArr={interestData}
-          calculators={calculators}
-        />
-      </div>
+        <div className="Interest-Calculator-chart-container">
+          <CompoundInterestChart
+            interestDataArr={interestData}
+            calculators={calculators}
+          />
+        </div>
 
-      <div className="Interest-Calculator-button-container">
-        <RemoveCalculator />
-        {interestData.length === 1 ? (
-          <div>
-            <Button variant="primary" onClick={handleShowMath}>
-              {showMath ? "Hide the math" : "Show the math"}
-            </Button>
-          </div>
-        ) : null}
-        <AddCalculator />
+        <div className="Interest-Calculator-button-container">
+          <CalculatorButton dispatch="remove" />
+          {interestData.length === 1 ? (
+            <div>
+              <Button variant="primary" onClick={handleShowMath}>
+                {showMath ? "Hide the math" : "Show the math"}
+              </Button>
+            </div>
+          ) : null}
+          <CalculatorButton dispatch="add" />
+        </div>
       </div>
-
       <div className="Interest-Calculator-formula-info">
         {showMath ? (
           <FormulaInformation

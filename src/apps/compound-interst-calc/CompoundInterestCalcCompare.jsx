@@ -8,7 +8,7 @@ import {
   FormulaInformation,
   CompoundInterestChart,
   CalculatorTotal,
-} from "./components";
+} from "../components";
 import { getColors } from "../../assets/utils";
 
 const getNewCalculator = () => {
