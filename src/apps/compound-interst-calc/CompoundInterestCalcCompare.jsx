@@ -9,7 +9,7 @@ import {
   CompoundInterestChart,
   CalculatorTotal,
 } from "../components";
-import { getColors } from "../../assets/utils";
+import { getColors, getMint } from "../../assets/utils";
 
 const getNewCalculator = () => {
   return {
@@ -41,7 +41,7 @@ const CompoundInterestCalcCompare = () => {
       interestRate: 8,
       compoundRate: 1,
       timeInYears: 35,
-      colors: getColors(3, 255),
+      colors: getMint(),
     },
   ]);
   const [calculators, setCalculators] = useState(

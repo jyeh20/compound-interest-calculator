@@ -80,30 +80,28 @@ const CompoundInterestCalc = () => {
     setInterestData(newInterestData);
   };
 
-  const [calculatorButtons] = useState(
-    new Map([
-      [
-        "add",
-        <Button
-          variant="primary"
-          disabled={interestData.length > 4}
-          onClick={handleAddCompare}
-        >
-          Add another calculator!
-        </Button>,
-      ],
-      [
-        "remove",
-        <Button
-          variant="primary"
-          disabled={interestData.length === 1}
-          onClick={handleRemoveCompare}
-        >
-          Remove a calculator!
-        </Button>,
-      ],
-    ])
-  );
+  const calculatorButtons = new Map([
+    [
+      "add",
+      <Button
+        variant="primary"
+        disabled={interestData.length > 4}
+        onClick={handleAddCompare}
+      >
+        Add another calculator!
+      </Button>,
+    ],
+    [
+      "remove",
+      <Button
+        variant="primary"
+        disabled={interestData.length === 1}
+        onClick={handleRemoveCompare}
+      >
+        Remove a calculator!
+      </Button>,
+    ],
+  ]);
 
   const InterestCalculatorButton = (props) => {
     const { element } = props;
