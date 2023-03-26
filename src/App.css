@@ -75,6 +75,9 @@
   justify-content: space-between;
   flex-wrap: wrap;
 }
+.Interest-Calculator-form-wrapper {
+  margin: auto;
+}
 .Interest-Calculator-forms {
   margin: auto;
   min-width: 200px;
@@ -177,8 +180,11 @@
   }
   .Interest-Calculator-forms {
     padding: 2vw;
-    width: 30%;
+    width: 40%;
     max-width: 475px;
+  }
+  .Interest-Calculator-form-wrapper {
+    width: 80%;
   }
   .Interest-Calculator-chart-container {
     width: 60vw;
@@ -199,7 +205,7 @@
   }
   h1.tool-amount-display-amount {
     padding-top: 3vh;
-    font-size: 2.5em;
+    font-size: 3em;
     text-align: center;
   }
 }

@@ -99,88 +99,90 @@ const CalculatorForm = (props) => {
   };
 
   return (
-    <Form>
-      <Form.Group className="mb-3" controlId="formInitialInvestment">
-        <Form.Label>Title</Form.Label>
-        <Form.Control
-          onBlur={handleTitleChange}
-          placeholder="Enter label name"
-        />
-        <Form.Label>Initial Investment</Form.Label>
-        <Form.Control
-          type="number"
-          inputMode="numeric"
-          step="1"
-          onBlur={handleInitialInvestmentChange}
-          placeholder="Enter Investment Amount"
-        />
-        <Form.Text className="text-muted">
-          The amount of your initial investment
-        </Form.Text>
-      </Form.Group>
+    <div className="Interest-Calculator-form-wrapper">
+      <Form>
+        <Form.Group className="mb-3" controlId="formInitialInvestment">
+          <Form.Label>Title</Form.Label>
+          <Form.Control
+            onBlur={handleTitleChange}
+            placeholder="Enter label name"
+          />
+          <Form.Label>Initial Investment</Form.Label>
+          <Form.Control
+            type="number"
+            inputMode="numeric"
+            step="1"
+            onBlur={handleInitialInvestmentChange}
+            placeholder="Enter Investment Amount"
+          />
+          <Form.Text className="text-muted">
+            The amount of your initial investment
+          </Form.Text>
+        </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formRecurringContribution">
-        <Form.Label>Recurring Contributions</Form.Label>
-        <Form.Control
-          type="number"
-          inputMode="numeric"
-          step="1"
-          onBlur={handleRecurringContributionChange}
-          placeholder="Enter Recurring Contribution Amount"
-        />
-        <Form.Text className="text-muted">
-          How much you plan to contribute to savings each month
-        </Form.Text>
-      </Form.Group>
+        <Form.Group className="mb-3" controlId="formRecurringContribution">
+          <Form.Label>Recurring Contributions</Form.Label>
+          <Form.Control
+            type="number"
+            inputMode="numeric"
+            step="1"
+            onBlur={handleRecurringContributionChange}
+            placeholder="Enter Recurring Contribution Amount"
+          />
+          <Form.Text className="text-muted">
+            How much you plan to contribute to savings each month
+          </Form.Text>
+        </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formInterestRate">
-        <Form.Label>Expected Interest Rate</Form.Label>
-        <Form.Control
-          type="text"
-          inputMode="decimal"
-          step="0.01"
-          min="0"
-          max="100"
-          onBlur={handleInterestRateChange}
-          placeholder="Enter Interest Rate"
-        />
-        <Form.Text className="text-muted">
-          Expected amount of returns on your investments
-        </Form.Text>
-      </Form.Group>
+        <Form.Group className="mb-3" controlId="formInterestRate">
+          <Form.Label>Expected Interest Rate</Form.Label>
+          <Form.Control
+            type="text"
+            inputMode="decimal"
+            step="0.01"
+            min="0"
+            max="100"
+            onBlur={handleInterestRateChange}
+            placeholder="Enter Interest Rate"
+          />
+          <Form.Text className="text-muted">
+            Expected amount of returns on your investments
+          </Form.Text>
+        </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formCompoundRate">
-        <Form.Label>Compound Frequency</Form.Label>
-        <Form.Select
-          aria-label="Default select example"
-          onBlur={handleCompoundRateChange}
-        >
-          {Object.entries(COMPOUND_TO_TIME).map(([key, val]) => (
-            <option key={key} value={key}>
-              {val}
-            </option>
-          ))}
-        </Form.Select>
-        <Form.Text className="text-muted">
-          How often your interest will compound per year
-        </Form.Text>
-      </Form.Group>
+        <Form.Group className="mb-3" controlId="formCompoundRate">
+          <Form.Label>Compound Frequency</Form.Label>
+          <Form.Select
+            aria-label="Default select example"
+            onBlur={handleCompoundRateChange}
+          >
+            {Object.entries(COMPOUND_TO_TIME).map(([key, val]) => (
+              <option key={key} value={key}>
+                {val}
+              </option>
+            ))}
+          </Form.Select>
+          <Form.Text className="text-muted">
+            How often your interest will compound per year
+          </Form.Text>
+        </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formTimeInYears">
-        <Form.Label>Time (In Years)</Form.Label>
-        <Form.Control
-          type="number"
-          step="1"
-          inputMode="numeric"
-          value={interestData.timeInYears}
-          onChange={handleTimeChange}
-          placeholder="Enter Time in Years"
-        />
-        <Form.Text className="text-muted">
-          How long you plan on saving
-        </Form.Text>
-      </Form.Group>
-    </Form>
+        <Form.Group className="mb-3" controlId="formTimeInYears">
+          <Form.Label>Time (In Years)</Form.Label>
+          <Form.Control
+            type="number"
+            step="1"
+            inputMode="numeric"
+            value={interestData.timeInYears}
+            onChange={handleTimeChange}
+            placeholder="Enter Time in Years"
+          />
+          <Form.Text className="text-muted">
+            How long you plan on saving
+          </Form.Text>
+        </Form.Group>
+      </Form>
+    </div>
   );
 };
 

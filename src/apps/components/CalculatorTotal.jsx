@@ -1,5 +1,6 @@
 import React from "react";
 import CompoundCalculator from "./CompoundCalculator";
+import { formatNumberStringWithCommas } from "../../assets/utils";
 
 const CalculatorTotal = (props) => {
   const { interestData } = props;
@@ -11,7 +12,7 @@ const CalculatorTotal = (props) => {
       </h3>
       <h1 className="tool-amount-display-amount">
         $
-        {Number.parseFloat(
+        {formatNumberStringWithCommas(
           calculator.roundDecimal(
             Number.parseFloat(
               calculator.recurringCompoundCalc(
